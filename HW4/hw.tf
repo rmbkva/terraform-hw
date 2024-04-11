@@ -8,6 +8,7 @@ provider aws {
    availability_zone = var.availability_zone
    key_name = var.key_name
    count = var.instance_count
+   vpc_security_group_ids = [aws_security_group.allow_tls.id]
   }
 
   variable ami_id {
@@ -51,3 +52,5 @@ provider aws {
     default = [22 , 80, 443]
     type = list(number)
   }
+
+    
