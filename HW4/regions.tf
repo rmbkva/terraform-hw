@@ -15,7 +15,7 @@
 # region = "us-west-1"
 # ami_id = "ami-0b990d3cfca306617"
 # type = "t2.micro"
-#availability_zone = "us-west-1a"
+#availability_zone = "us-west-1c"
 
 #oregon
 # region = "us-west-2"
