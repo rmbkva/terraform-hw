@@ -35,6 +35,7 @@ variable ec2_instance {
   description = "List of ec2 instances"
   type = list(object ({
   ec2_type = string 
+  ec2_name = string 
   }))
 }
 

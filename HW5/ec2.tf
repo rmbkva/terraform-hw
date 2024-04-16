@@ -23,11 +23,11 @@ data "aws_ami" "amzn2" {
   vpc_security_group_ids = [aws_security_group.allow_tls.id]
   key_name = aws_key_pair.bastion1-key.key_name
   user_data = file("apache.sh")
- 
-  }
 
-  output ec2 {
-    value = aws_instance.Amazon.public_ip
+  tags = {
+    name = var.ec2_instance[0].ec2_name
+  }
+ 
   }
 
 
@@ -48,14 +48,14 @@ data "aws_ami" "amzn2" {
 }
 
 resource "aws_instance" "ubuntu" {
-  ami          = data.aws_ami.ubuntu.id
-  instance_type = var.ec2_instance[1].ec2_type
+ami          = data.aws_ami.ubuntu.id
+instance_type = var.ec2_instance[1].ec2_type
    subnet_id = aws_subnet.public2.id
 vpc_security_group_ids = [aws_security_group.allow_tls.id]
 key_name = aws_key_pair.bastion1-key.key_name
 user_data = file("apache.sh")
-}
 
-output ec2ubuntu{
-    value = aws_instance.ubuntu.public_ip
+tags = {
+  name = var.ec2_instance[1].ec2_name
+}
 }
