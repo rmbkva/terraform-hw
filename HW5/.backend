@@ -25,3 +25,6 @@ ec2_instance = [
 ]
 
 ports = [22 , 80]
+
+
+TFVARS files 
