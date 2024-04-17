@@ -1,3 +1,8 @@
+provider aws {
+    region = var.region 
+}
+
+
  data "aws_ami" "ubuntu" {
   most_recent = true
 
@@ -17,7 +22,6 @@
 resource "aws_instance" "ubuntu" {
 ami          = data.aws_ami.ubuntu.id
 instance_type = var.instance_type
-vpc_security_group_ids = [aws_security_group.allow_tls.id]
 user_data = file("apache.sh")
 user_data_replace_on_change = true 
 

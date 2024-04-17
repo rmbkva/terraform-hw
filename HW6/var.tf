@@ -7,3 +7,4 @@ variable "region" {
     type = string
     description = "Provided region"
 }
+
